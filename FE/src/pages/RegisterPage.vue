@@ -62,13 +62,13 @@ function Register() {
   // })
   if (password.value === confirmpassword.value) {
     api
-      .post('/api/Register', {
+      .post('/api/register', {
         name: name.value,
         email: email.value,
         password: password.value,
       })
       .then((r) => {
-        console.log(r)
+        console.log(r.data)
         // Notify.create({
         //   type: 'positive',
         //   message: 'user register success',
