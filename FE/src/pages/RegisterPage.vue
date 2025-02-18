@@ -49,14 +49,14 @@
 import { ref } from 'Vue'
 import { Notify } from 'quasar'
 import { api } from 'src/boot/axios'
-import { useRoute } from 'vue-router'
+import { useRouter } from 'vue-router'
 
 const name = ref('')
 const email = ref('')
 const password = ref('')
 const confirmpassword = ref('')
 const isPwd = ref(true)
-const router = useRoute
+const router = useRouter()
 function Register() {
   // Notify.create({
   //   type: 'positive',

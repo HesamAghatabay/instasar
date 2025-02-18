@@ -21,6 +21,12 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        if(User::where('email',$request->email)->exists()){
+            return response()->json([
+                'message' => 'user alredy exists',
+                'status' => 0,
+            ]);
+        }
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
