@@ -49,12 +49,14 @@
 import { ref } from 'Vue'
 import { Notify } from 'quasar'
 import { api } from 'src/boot/axios'
+import { useRoute } from 'vue-router'
 
 const name = ref('')
 const email = ref('')
 const password = ref('')
 const confirmpassword = ref('')
 const isPwd = ref(true)
+const router = useRoute
 function Register() {
   // Notify.create({
   //   type: 'positive',
@@ -73,11 +75,12 @@ function Register() {
             type: 'positive',
             message: 'user register success',
           })
-        }else{
+          router.push('/login')
+        } else {
           Notify.create({
-          type: 'negative',
-          message: 'we have error',
-        })
+            type: 'negative',
+            message: 'we have error',
+          })
         }
       })
       .catch(() => {
