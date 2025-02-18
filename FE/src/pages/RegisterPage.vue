@@ -40,7 +40,7 @@
           ></q-input>
         </div>
       </div>
-      <q-btn class="full-width q-mt-lg" color="green-8" @click="Register"> Register </q-btn>
+      <q-btn class="full-width q-mt-lg" color="green-9" @click="Register"> Register </q-btn>
     </div>
   </q-page>
 </template>
@@ -48,7 +48,7 @@
 <script setup>
 import { ref } from 'Vue'
 import { Notify } from 'quasar'
-import {api} from 'src/boot/axios'
+import { api } from 'src/boot/axios'
 
 const name = ref('')
 const email = ref('')
@@ -56,12 +56,35 @@ const password = ref('')
 const confirmpassword = ref('')
 const isPwd = ref(true)
 function Register() {
-  if (name.value != '' && email.value != '' && password.value === confirmpassword.value) {
-    api.post('/api/Register'){
-      name=name.value,
-      email=email.value,
-      password=password.value,
-    }
+  // Notify.create({
+  //   type: 'positive',
+  //   message: 'Hi ',
+  // })
+  if (password.value === confirmpassword.value) {
+    api
+      .post('/api/Register', {
+        name: name.value,
+        email: email.value,
+        password: password.value,
+      })
+      .then((r) => {
+        console.log(r)
+        // Notify.create({
+        //   type: 'positive',
+        //   message: 'user register success',
+        // })
+      })
+    // .catch(() => {
+    //   Notify.create({
+    //     type: 'negative',
+    //     message: 'user register wrong',
+    //   })
+    // })
+  } else {
+    Notify.create({
+      type: 'negative',
+      message: 'password wrong!',
+    })
   }
 }
 </script>
