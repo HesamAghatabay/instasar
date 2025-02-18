@@ -68,18 +68,24 @@ function Register() {
         password: password.value,
       })
       .then((r) => {
-        console.log(r.data)
-        // Notify.create({
-        //   type: 'positive',
-        //   message: 'user register success',
-        // })
+        if (r.data.status === 1) {
+          Notify.create({
+            type: 'positive',
+            message: 'user register success',
+          })
+        }else{
+          Notify.create({
+          type: 'negative',
+          message: 'we have error',
+        })
+        }
       })
-    // .catch(() => {
-    //   Notify.create({
-    //     type: 'negative',
-    //     message: 'user register wrong',
-    //   })
-    // })
+      .catch(() => {
+        Notify.create({
+          type: 'negative',
+          message: 'user register wrong',
+        })
+      })
   } else {
     Notify.create({
       type: 'negative',
