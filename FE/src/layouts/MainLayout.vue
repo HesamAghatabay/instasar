@@ -6,7 +6,7 @@
 
         <q-toolbar-title>
           Instasar
-          <q-btn flat @click="toggleDarkMode" icon="brightness_4" />
+          <q-btn flat @click="Dark.toggle()" icon="brightness_4" />
         </q-toolbar-title>
 
         <div>Instasar v 0.0.1</div>
@@ -41,6 +41,8 @@
 
 <script setup>
 import { ref } from 'vue'
+import { Dark } from 'quasar'
+Dark.set(false)
 // import EssentialLink from 'components/EssentialLink.vue'
 
 // const linksList = [
@@ -93,7 +95,12 @@ const leftDrawerOpen = ref(false)
 function toggleLeftDrawer() {
   leftDrawerOpen.value = !leftDrawerOpen.value
 }
-function toggleDarkMode() {
-  this.$q.dark.toggle()
-}
+// function toggleDarkMode() {
+//   Dark.toggle()
+// }
 </script>
+<style>
+body.body--dark {
+  background: #222222;
+}
+</style>
