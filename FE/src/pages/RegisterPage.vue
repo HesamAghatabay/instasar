@@ -40,7 +40,7 @@
           ></q-input>
         </div>
       </div>
-      <q-btn class="full-width q-mt-lg" color="green-9" @click="Register"> Register </q-btn>
+      <q-btn class="full-width q-mt-lg shadow-2" color="green-9" @click="Register"> Register </q-btn>
     </div>
   </q-page>
 </template>

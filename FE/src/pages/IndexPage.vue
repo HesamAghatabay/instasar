@@ -10,7 +10,7 @@
     </q-header> -->
     <h1 class="text-weight-bold">Hi Welcome to Instasar</h1>
     <div class="flex">
-      <p class="text-h4 text-red-8">lets join us</p>
+      <p class="text-h4 text-red-8 shadow-2">lets join us</p>
       <q-btn class="q-mx-md" size="xs" color="indigo-5" outlined to="/Register">Register</q-btn>
     </div>
   </q-page>
