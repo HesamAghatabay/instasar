@@ -2,17 +2,11 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
       <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        />
+        <q-btn flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
 
         <q-toolbar-title>
           Instasar
+          <q-btn flat @click="toggleDarkMode" icon="brightness_4" />
         </q-toolbar-title>
 
         <div>Instasar v 0.0.1</div>
@@ -96,7 +90,10 @@ import { ref } from 'vue'
 
 const leftDrawerOpen = ref(false)
 
-function toggleLeftDrawer () {
+function toggleLeftDrawer() {
   leftDrawerOpen.value = !leftDrawerOpen.value
+}
+function toggleDarkMode() {
+  this.$q.dark.toggle()
 }
 </script>
