@@ -13,6 +13,7 @@
 import { ref } from 'vue'
 import { api } from 'src/boot/axios'
 import { useRoute } from 'vue-router'
+import { Notify } from 'quasar'
 
 const email = ref('')
 const password = ref('')
