@@ -2,7 +2,7 @@
   <q-page padding>
     <div class="flex flex-center">
       <h1 class="text-h2">You did it 👌</h1>
-      <br>
+      <br />
       <q-input rounded lable="email" type="email" v-model="email" />
       <q-input rounded lable="password" type="password" v-model="password" />
       <q-btn lable="Login" color="green-9" rounded @click="login" />
