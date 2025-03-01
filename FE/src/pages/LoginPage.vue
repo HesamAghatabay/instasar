@@ -31,13 +31,18 @@ function login() {
     })
     .then((r) => {
       if (r.data.access_token) {
+        // api.defaults.headers = {
+        //   authorization: 'Bearer ' + localStorage.getItem('access_token'),
+        //   'content-type': 'application/json',
+        //   Accept: 'aplication/json;charset=UTF-8',
+        // }
+
         localStorage.setItem('access_token', r.data.access_token)
         Notify.create({
           type: 'positive',
           message: 'user login success',
         })
         router.push('/posts')
-        
       } else {
         Notify.create({
           type: 'negative',
