@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Profile;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -10,9 +11,9 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return 1;
+        return $request->user()->with('Profile', $request->user()->profile());
     }
 
     /**
