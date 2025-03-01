@@ -7,12 +7,11 @@
 <script setup>
 import { api } from 'src/boot/axios'
 
-api
-  .get('api/posts')
+api.get('/api/posts')
   .then((r) => {
-    console.log(r)
-  })
-  .catch((e) => {
-    console.log(e)
-  })
+    console.log(r.data);
+  }).catch((e) => {
+    console.log(e);
+  });
+  
 </script>

@@ -9,9 +9,9 @@ import axios from 'axios'
 // for each client)
 const api = axios.create({ baseURL: 'http://localhost:8000' })
 api.defaults.headers = {
-  authorization: 'Bearer ' + localStorage.getItem('access_token'),
-  'content-type': 'application/json',
-  Accept: 'aplication/json;charset=UTF-8',
+  Authorization: 'Bearer ' + localStorage.getItem('access_token'),
+  'Content-Type': 'application/json',
+  Accept: 'application/json;charset=UTF-8',
 }
 
 export default defineBoot(({ app }) => {

@@ -25,24 +25,24 @@ function login() {
       grant_type: 'password',
       client_id: 2,
       client_secret: 'EtWCT00q7NvtbomObQjVEovqRyeRz3j2KXbBhSSq',
-      scope: '',
+      scope: '*',
       username: email.value,
       password: password.value,
     })
     .then((r) => {
       if (r.data.access_token) {
+        localStorage.setItem('access_token', r.data.access_token)
         // api.defaults.headers = {
-        //   authorization: 'Bearer ' + localStorage.getItem('access_token'),
-        //   'content-type': 'application/json',
-        //   Accept: 'aplication/json;charset=UTF-8',
+        //   Authorization: 'Bearer ' + localStorage.getItem('access_token'),
+        //   'Content-Type': 'application/json',
+        //   Accept: 'application/json;charset=UTF-8',
         // }
 
-        localStorage.setItem('access_token', r.data.access_token)
         Notify.create({
           type: 'positive',
           message: 'user login success',
         })
-        router.push('/posts')
+        router.push('/posts');
       } else {
         Notify.create({
           type: 'negative',
