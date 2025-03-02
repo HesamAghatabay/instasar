@@ -14,11 +14,11 @@
 import { ref } from 'vue'
 import { api } from 'src/boot/axios'
 import { Notify } from 'quasar'
-import { useRoute } from 'vue-router'
+import { useRouter } from 'vue-router'
 
 const email = ref('')
 const password = ref('')
-const router = useRoute
+const router = useRouter()
 function login() {
   api
     .post('/oauth/token', {
@@ -29,6 +29,7 @@ function login() {
       username: email.value,
       password: password.value,
     })
+
     .then((r) => {
       if (r.data.access_token) {
         localStorage.setItem('access_token', r.data.access_token)
@@ -37,18 +38,24 @@ function login() {
           'Content-Type': 'application/json',
           Accept: 'application/json;charset=UTF-8',
         }
-
         Notify.create({
           type: 'positive',
           message: 'user login success',
         })
-        router.push('/posts');
+        router.push('/posts')
       } else {
         Notify.create({
           type: 'negative',
           message: 'user login no success',
         })
       }
+    })
+    .catch((e) => {
+      console.log(e)
+      Notify.create({
+        type: 'negative',
+        message: 'User login failed',
+      })
     })
 }
 </script>
