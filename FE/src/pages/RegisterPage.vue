@@ -58,10 +58,6 @@ const confirmpassword = ref('')
 const isPwd = ref(true)
 const router = useRouter()
 function Register() {
-  // Notify.create({
-  //   type: 'positive',
-  //   message: 'Hi ',
-  // })
   if (password.value === confirmpassword.value) {
     api
       .post('/api/register', {
