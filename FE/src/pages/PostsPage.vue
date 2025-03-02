@@ -14,7 +14,7 @@ import { ref } from 'vue'
 const me = ref(null)
 
 api
-  .get('/api/posts')
+  .get('api/posts')
   .then((r) => {
     console.log(r.data)
   })
