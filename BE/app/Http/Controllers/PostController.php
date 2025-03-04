@@ -14,6 +14,7 @@ class PostController extends Controller
     public function index(Request $request)
     {
         return $request->user()->with('Profile', $request->user()->profile());
+        // return $request->user();
     }
 
     /**

@@ -1,9 +1,10 @@
 <template>
   <q-page padding>
     <h1>Hi</h1>
+    <q-inner-loading v-if="!me" size="45px" />
     <div v-if="me">
-      <img :src="me.profile.avatar" :alt="me.profile.full_name" />
-      <p>{{ me.profile.full_name }}</p>
+      <img :src="me.Profile.avatar" :alt="me.Profile.full_name" />
+      <p>{{ me.Profile.full_name }}</p>
     </div>
   </q-page>
 </template>
@@ -13,12 +14,12 @@ import { api } from 'src/boot/axios'
 import { ref } from 'vue'
 const me = ref(null)
 
-api
-  .get('api/posts')
-  .then((r) => {
-    console.log(r.data)
-  })
-  .catch((e) => {
-    console.log(e)
-  })
+  api
+    .get('api/posts')
+    .then((r) => {
+      console.log(r.data)
+    })
+    .catch((e) => {
+      console.log(e)
+    })
 </script>
