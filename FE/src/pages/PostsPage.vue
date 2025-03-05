@@ -14,12 +14,12 @@ import { api } from 'src/boot/axios'
 import { ref } from 'vue'
 const me = ref(null)
 
-  api
-    .get('api/posts')
-    .then((r) => {
-      console.log(r.data)
-    })
-    .catch((e) => {
-      console.log(e)
-    })
+api
+  .get('api/posts')
+  .then((r) => {
+    console.log(r.data)
+  })
+  .catch((e) => {
+    console.log(e)
+  })
 </script>
