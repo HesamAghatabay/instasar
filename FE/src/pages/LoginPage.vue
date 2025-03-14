@@ -3,7 +3,7 @@
     <div class="justify-center">
       <h1 class="text-h2">You did it 👌</h1>
       <br />
-      <q-input rounded outlined label="email" type="email" v-model="email" />
+      <q-input rounded outlined label="email" type="email" suffix="@gmail.com" v-model="email" />
       <q-input rounded outlined label="password" type="password" v-model="password" />
       <q-btn lable="Login" label="login" color="green-9" rounded @click="login" />
     </div>

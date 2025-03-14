@@ -12,6 +12,7 @@
             color="blue-9"
             label="Enter email"
             v-model="email"
+            suffix="@gmail.com"
             type="text"
           ></q-input>
         </div>
@@ -40,13 +41,15 @@
           ></q-input>
         </div>
       </div>
-      <q-btn class="full-width q-mt-lg shadow-2" color="green-9" @click="Register"> Register </q-btn>
+      <q-btn class="full-width q-mt-lg shadow-2" color="green-9" @click="Register">
+        Register
+      </q-btn>
     </div>
   </q-page>
 </template>
 
 <script setup>
-import { ref } from 'Vue'
+import { ref } from 'vue'
 import { Notify } from 'quasar'
 import { api } from 'src/boot/axios'
 import { useRouter } from 'vue-router'
