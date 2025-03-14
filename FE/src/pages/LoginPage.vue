@@ -24,7 +24,7 @@ function login() {
     .post('/oauth/token', {
       grant_type: 'password',
       client_id: 2,
-      client_secret: 'EtWCT00q7NvtbomObQjVEovqRyeRz3j2KXbBhSSq',
+      client_secret: '4ws1wsLI2zRJ2oYB6ezlnwNsLTKLb1xiV9uNRfHt',
       scope: '*',
       username: email.value,
       password: password.value,
