@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 
 class UserController extends Controller
 {
@@ -22,7 +23,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         if(User::where('email',$request->email)->exists()){
-            return response()->json([
+            return Response()->json([
                 'message' => 'user alredy exists',
                 'status' => 0,
             ]);
